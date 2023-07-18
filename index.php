@@ -19,10 +19,13 @@ $rows = $posts->fetchAll(PDO::FETCH_OBJ);
         <?php foreach ($rows as $row) : ?>
             <!-- Post preview-->
             <div class="post-preview">
+                <!-- <img src="http://localhost/PHP/CMS/posts/images/<?php # echo $row->img 
+                                                                        ?>" alt=""> -->
                 <a href="http://localhost/PHP/CMS/posts/post.php?post_id=<?php echo $row->id ?>">
                     <h2 class="post-title"><?php echo $row->title ?></h2>
-                    <h3 class="post-subtitle"><?php echo $row->subtitle ?></h3>
                 </a>
+                <h3 class="post-subtitle"><?php echo $row->subtitle ?></h3>
+
                 <p class="post-meta">
                     Posted by
                     <a href="#!"><?php echo $row->user_name ?></a>
