@@ -62,6 +62,7 @@ require "../CMS/includes/header.php";
         <hr class="my-4" />
         <!-- Pager-->
 
+        <p>testowy commit </p>
     </div>
 </div>
 <?php
