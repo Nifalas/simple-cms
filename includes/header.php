@@ -36,7 +36,7 @@ session_start();
                 <ul class="navbar-nav ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/PHP/CMS/index.php">Home</a></li>
                     <?php if (isset($_SESSION['username'])) : ?>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/PHP/CMS/create.php">create</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/PHP/CMS/posts/create.php">create</a></li>
                         <li class="nav-item dropdown mt-3">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <?php echo $_SESSION['username']; ?>
