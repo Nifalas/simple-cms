@@ -41,7 +41,7 @@ require "../CMS/includes/header.php";
             <p class="post-meta">
                 Posted by
                 <a href="#!">Start Bootstrap</a>
-                on August 24, 2022
+                on August 24, 2022.
             </p>
         </div>
         <!-- Divider-->
