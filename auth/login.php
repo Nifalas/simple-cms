@@ -5,22 +5,7 @@ require "../config/config.php";
 
 <?php
 
-//check for the submit
 
-
-//take the data
-
-
-//write our query
-
-
-// execute and then fetch
-
-
-//do our rowCount
-
-
-// to do our password_verifiy + redirect to index page
 
 if (isset($_SESSION['username'])) {
     header("location: http://localhost/PHP/CMS/index.php");
@@ -45,6 +30,7 @@ if (isset($_POST['submit'])) {
 
 
                 $_SESSION['username'] = $row['username'];
+                $_SESSION['user_id'] = $row['id'];
 
                 header('location: http://localhost/PHP/CMS/index.php');
             }
