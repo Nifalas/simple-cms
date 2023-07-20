@@ -29,7 +29,7 @@ $rows = $posts->fetchAll(PDO::FETCH_OBJ);
                 <p class="post-meta">
                     Posted by
                     <a href="#!"><?php echo $row->user_name ?></a>
-                    on <?php echo $row->created_at ?>
+                    on <?php echo  date('d', strtotime($row->created_at)) . ' ' . date('M', strtotime($row->created_at))  . ', ' . date('Y', strtotime($row->created_at)); ?>
                     <!-- Set date to day/month/year -->
                 </p>
             </div>

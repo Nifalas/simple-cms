@@ -37,7 +37,7 @@ if (isset($_GET['post_id'])) {
                         Posted by
                         <a href="#!"><?php echo  $post->user_name;
                                         ?></a>
-                        on <?php echo $post->created_at;
+                        on <?php echo date('M', strtotime($post->created_at)) . ', ' . date('d', strtotime($post->created_at))  . ', ' . date('Y', strtotime($post->created_at));
                             ?>
                     </span>
                 </div>
@@ -58,6 +58,8 @@ if (isset($_GET['post_id'])) {
                     &middot; Images by
                     <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>
                 </p> -->
+                <a href="http://localhost/PHP/CMS/posts/delete.php?del_id=<?php echo $post->id ?>" class="btn btn-danger text-ceter float-end">Delete</a>
+                <a href="http://localhost/PHP/CMS/posts/update.php?up_id=<?php echo $post->id ?>" class="btn btn-warning text-ceter">Update</a>
             </div>
         </div>
     </div>
