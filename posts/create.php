@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
         ]);
 
         if (move_uploaded_file($_FILES['img']['tmp_name'], $dir)) {
-            header('locations: http://localhost/PHP/CMS/index.php');
+            header('location: http://localhost/PHP/CMS/index.php');
         }
     }
 }

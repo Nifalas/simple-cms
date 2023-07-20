@@ -59,7 +59,7 @@ if (isset($_GET['post_id'])) {
                     <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>
                 </p> -->
                 <a href="http://localhost/PHP/CMS/posts/delete.php?del_id=<?php echo $post->id ?>" class="btn btn-danger text-ceter float-end">Delete</a>
-                <a href="http://localhost/PHP/CMS/posts/update.php?up_id=<?php echo $post->id ?>" class="btn btn-warning text-ceter">Update</a>
+                <a href="http://localhost/PHP/CMS/posts/update.php?upd_id=<?php echo $post->id ?>" class="btn btn-warning text-ceter">Update</a>
             </div>
         </div>
     </div>
