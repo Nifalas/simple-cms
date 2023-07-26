@@ -58,8 +58,10 @@ if (isset($_GET['post_id'])) {
                     &middot; Images by
                     <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>
                 </p> -->
+                <?php if(isset($_SESSION['user_id']) AND $_SESSION['user_id'] == $post->user_id) :  ?>
                 <a href="http://localhost/PHP/CMS/posts/delete.php?del_id=<?php echo $post->id ?>" class="btn btn-danger text-ceter float-end">Delete</a>
                 <a href="http://localhost/PHP/CMS/posts/update.php?upd_id=<?php echo $post->id ?>" class="btn btn-warning text-ceter">Update</a>
+                <?php endif ?>
             </div>
         </div>
     </div>

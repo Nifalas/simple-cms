@@ -12,6 +12,9 @@ require "../config/config.php";
         $select->execute(); 
         $rows = $select->fetch(PDO::FETCH_OBJ);
 
+        if($_SESSION['user_id'] !== $rows->user_id ){
+            header('location: http://localhost/PHP/CMS/index.php');
+        }
 
         //second query 
         if(isset($_POST['submit'])){
@@ -19,9 +22,9 @@ require "../config/config.php";
                 echo 'Fill all fields before submiting!';
             } else {
 
-                // Do poprawy 
+                // Do poprawy update zdjęć
                 
-                //unlink("images/" . $rows->img ."");
+                unlink("images/" . $rows->img ."");
 
                 $title = $_POST['title'];
                 $subtitle = $_POST['subtitle'];
