@@ -5,13 +5,19 @@ require "../config/config.php";
 
 <?php
 
+    $categories = $conn->query("SELECT * FROM categories");
+    $categories->execute();
+    $category = $categories->fetchAll(PDO::FETCH_OBJ);
+
+
 if (isset($_POST['submit'])) {
-    if ($_POST['title'] == '' or $_POST['subtitle'] == '' or $_POST['body'] == '') {
+    if ($_POST['title'] == '' or $_POST['subtitle'] == '' or $_POST['body'] == '' or $_POST['category_id'] == '') {
         echo 'Fill all fields before submiting!';
     } else {
         $title = $_POST['title'];
         $subtitle = $_POST['subtitle'];
         $body = $_POST['body'];
+        $category_id = $_POST['category_id'];
         $img = $_FILES['img']['name'];
         $seoTitle = $_POST['seotitle'];
         $seoDesc = $_POST['seodesc'];
@@ -21,12 +27,13 @@ if (isset($_POST['submit'])) {
 
         $dir = 'images/' . basename($img);
 
-        $insert = $conn->prepare("INSERT INTO posts (`title`, `subtitle`, `body`, `img`, `seotitle`, `seodesc`, `user_id`, `user_name`) VALUES (:title, :subtitle, :body, :img, :seotitle, :seodesc, :user_id, :user_name)");
+        $insert = $conn->prepare("INSERT INTO posts (`title`, `subtitle`, `body`, `category_id`, `img`, `seotitle`, `seodesc`, `user_id`, `user_name`) VALUES (:title, :subtitle, :body, :category_id, :img, :seotitle, :seodesc, :user_id, :user_name)");
 
         $insert->execute([
             ':title' => $title,
             ':subtitle' => $subtitle,
             ':body' => $body,
+            ':category_id' => $category_id,
             ':img' => $img,
             ':seotitle' => $seoTitle,
             ':seodesc' => $seoDesc,
@@ -60,6 +67,15 @@ if (isset($_POST['submit'])) {
 
     <div class="form-outline mb-4">
         <textarea type="text" name="body" id="form2Example1" class="form-control" placeholder="body" rows="8"></textarea>
+    </div>
+
+    <div class="form-outline mb-4">
+        <select class="form-select" name="category_id" aria-label="Default select example">
+            <option selected>Category</option>
+            <?php foreach($category as $cat) :  ?>
+            <option value="<?php echo $cat->id; ?>"><?php echo $cat->name; ?></option>
+            <?php endforeach; ?>
+        </select>
     </div>
 
 

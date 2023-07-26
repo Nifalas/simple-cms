@@ -1,19 +1,25 @@
 <?php
-require "../CMS/includes/header.php";
-require "../CMS/config/config.php";
+require "../includes/header.php";
+require "../config/config.php";
 
 ?>
 
-<?php
 
-$posts = $conn->query("SELECT * FROM posts");
+<?php 
+
+if(isset($_GET['cat_id'])){
+    $id = $_GET['cat_id'];
+
+    $posts = $conn->query("SELECT posts.id AS id, posts.title AS title, posts.subtitle AS subtitle, posts.user_name AS user_name, posts.created_at AS created_at, posts.category_id AS category_id FROM `categories` JOIN `posts` ON categories.id = posts.category_id 
+WHERE posts.category_id = '$id'");
 $posts->execute();
 $rows = $posts->fetchAll(PDO::FETCH_OBJ);
+}
+else{
+    echo '404';
+}
 
 
-$categories = $conn->query("SELECT * FROM categories");
-$categories->execute();
-$category = $categories->fetchAll(PDO::FETCH_OBJ);
 
 
 ?>
@@ -48,23 +54,10 @@ $category = $categories->fetchAll(PDO::FETCH_OBJ);
     </div>
 </div>
 
-<div class="row gx-4 gx-lg-5 justify-content-center">   
 
-<p style="font-size:1.5em;font-weight:bold;">Categories</p>
-<?php foreach ($category as $cat) : ?>
 
-    <div class="col-md-6">
-    <a href="http://localhost/PHP/CMS/categories/category.php?cat_id=<?php echo $cat->id ?>">
-        <div class="alert alert-dark bg-dark text-center text-white" role="alert">
-              <?php echo $cat->name; ?>
-        </div>
-        </a> 
-    </div>
-
-<?php endforeach; ?>
-</div>
 
 <?php
-require "../CMS/includes/footer.php";
+require "../includes/footer.php";
 
 ?>
