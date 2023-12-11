@@ -16,7 +16,7 @@ $posts->execute();
 $rows = $posts->fetchAll(PDO::FETCH_OBJ);
 }
 else{
-    echo '404';
+    header('location: http://localhost/PHP/CMS/404.php');
 }
 
 
