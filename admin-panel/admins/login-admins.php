@@ -2,9 +2,9 @@
 <?php require "../../config/config.php"; ?>
 <?php
 
-// if (isset($_SESSION['username'])) {
-//   header("location: http://localhost/PHP/CMS/index.php");
-// }
+if (isset($_SESSION['adminname'])) {
+  header("location:http://localhost/PHP/CMS/admin-panel/index.php");
+}
 
 
 

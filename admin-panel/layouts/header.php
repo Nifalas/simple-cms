@@ -20,7 +20,7 @@
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
+<?php if(isset($_SESSION['adminname'])) : ?> 
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav side-nav" >
           <li class="nav-item">
@@ -37,29 +37,34 @@
           <li class="nav-item">
             <a class="nav-link" href="posts-admins/show-posts.html" style="margin-left: 20px;">Posts</a>
           </li>
+          <?php endif; ?>
          <!--  <li class="nav-item">
             <a class="nav-link" href="#" style="margin-left: 20px;">Comments</a>
           </li> -->
         </ul>
         <ul class="navbar-nav ml-md-auto d-md-flex">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home
+            <a class="nav-link" href="http://localhost/PHP/CMS/admin-panel/index.php">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
+          <?php if(!isset($_SESSION['adminname'])) : ?> 
           <li class="nav-item">
             <a class="nav-link" href="http://localhost/PHP/CMS/admin-panel/admins/login-admins.php">login
               <span class="sr-only">(current)</span>
             </a>
           </li>
+          <?php endif; ?>
+          <?php if(isset($_SESSION['adminname'])) : ?> 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              username
+              <?php echo $_SESSION['adminname']; ?>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Logout</a>
-              
+              <a class="dropdown-item" href="http://localhost/PHP/CMS/admin-panel/admins/logout.php">Logout</a>
+            </div>
           </li>
+          <?php endif; ?>
                           
           
         </ul>
