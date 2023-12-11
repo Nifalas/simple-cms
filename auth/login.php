@@ -15,7 +15,9 @@ if (isset($_SESSION['username'])) {
 
 if (isset($_POST['submit'])) {
     if ($_POST['email'] == '' or $_POST['password'] == '') {
-        echo "fill login and password";
+        echo '<div class="alert alert-danger text-center text-white" role="alert">
+        Fill all inputs
+  </div>';
     } else {
         $email =  $_POST['email'];
         $password =  $_POST['password'];
@@ -33,7 +35,16 @@ if (isset($_POST['submit'])) {
                 $_SESSION['user_id'] = $row['id'];
 
                 header('location: http://localhost/PHP/CMS/index.php');
+            } else{
+                echo '<div class="alert alert-danger text-center text-white" role="alert">
+                Email or password is wrong
+          </div>';
             }
+        }
+        else{
+            echo '<div class="alert alert-danger text-center text-white" role="alert">
+            Email or password is wrong
+      </div>';
         }
     }
 }

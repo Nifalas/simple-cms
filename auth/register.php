@@ -12,7 +12,9 @@ if (isset($_SESSION['username'])) {
 if (isset($_POST['submit'])) {
 
   if ($_POST['email'] == '' or $_POST['username'] == '' or $_POST['password'] == '') {
-    echo "Registed data is not complete";
+    echo '<div class="alert alert-danger text-center text-white" role="alert">
+            Enter data into inputs
+      </div>';
   } else {
     $email = $_POST['email'];
     $username = $_POST['username'];
