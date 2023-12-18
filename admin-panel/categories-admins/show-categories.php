@@ -30,7 +30,7 @@ $rows = $categories->fetchAll(PDO::FETCH_OBJ);
                     <th scope="row"><?php echo $row->id; ?></th>
                     <td><?php echo $row->name; ?></td>
                     <td><a  href="http://localhost/PHP/CMS/admin-panel/categories-admins/update-category.php?up_id=<?php echo $row->id; ?>" class="btn btn-warning text-white text-center ">Update</a></td>
-                    <td><a href="http://localhost/PHP/CMS/admin-panel/categories-admins/delete-category.php?del_id=<?php echo $row->id; ?>" class="btn btn-danger  text-center ">Delete</a></td>
+                    <td><a href="http://localhost/PHP/CMS/admin-panel/categories-admins/delete-category.php?de_id=<?php echo $row->id; ?>" class="btn btn-danger  text-center ">Delete</a></td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
