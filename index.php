@@ -6,7 +6,7 @@ require "../CMS/config/config.php";
 
 <?php
 
-$posts = $conn->query("SELECT * FROM posts");
+$posts = $conn->query("SELECT * FROM posts WHERE status = 1");
 $posts->execute();
 $rows = $posts->fetchAll(PDO::FETCH_OBJ);
 
