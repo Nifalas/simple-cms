@@ -26,6 +26,7 @@
                     <th scope="col">user</th>
                     <th scope="col">status</th>
                     <th scope="col">delete</th>
+                    <th scope="col">See post</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -38,11 +39,12 @@
                     <?php if($row->status == 0):  ?>
                      <td><a href="status-posts.php?status=<?php echo $row->status; ?>&id=<?php echo $row->id; ?>" class="btn btn-danger text-center ">Hidden</a></td>
                      <?php else: ?>
-                      <td><a href="status-posts.php?status=<?php echo $row->status; ?>&id=<?php echo $row->id; ?>" class="btn btn-primary text-center ">Active</a></td>
+                      <td><a href="status-posts.php?status=<?php echo $row->status; ?>&id=<?php echo $row->id; ?>" class="btn btn-succes text-center ">Active</a></td>
                       <?php endif; ?>
 
 
                      <td><a href="delete-posts.php?po_id=<?php echo $row->id; ?>" class="btn btn-danger  text-center ">delete</a></td>
+                     <td><a href="http://localhost/PHP/CMS/posts/post.php?post_id=<?php echo $row->id; ?>" class="btn btn-info  text-center ">Go to</a></td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>

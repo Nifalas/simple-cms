@@ -85,10 +85,10 @@ if (isset($_POST['submit'])) {
 
     <div class="form-outline mb-4">
         <h2>SEO Settings</h2>
-        <input type="text" name="seotitle" id="form2Example1" class="form-control" placeholder=" SEO Title" />
+        <input type="text" name="seotitle" id="formSeoTitle" class="form-control" placeholder=" SEO Title" />
     </div>
     <div class="form-outline mb-4">
-        <textarea type="text" name="seodesc" id="form2Example1" class="form-control" rows="3" placeholder="Meta Description"></textarea>
+        <textarea type="text" name="seodesc" id="formSeoDesc" class="form-control" rows="3" placeholder="Meta Description"></textarea>
     </div>
 
     <!-- Submit button -->
@@ -97,7 +97,30 @@ if (isset($_POST['submit'])) {
 
 </form>
 
+<h3>SERP simulator</h3>
+<div id="serp-result">
+<div>
+    <span class="title-result"></span>
+</div>
+<div>
+    <span class="desc-result"> </span>
+</div>
+</div>
 
+<script>
+const seoTitle = document.querySelector('#formSeoTitle'); 
+const seoDesc = document.querySelector('#formSeoDesc'); 
+
+const titleResult = document.querySelector('.title-result'); 
+const descResult = document.querySelector('.desc-result'); 
+
+seoTitle.addEventListener('keydown', ()=>{
+    titleResult.innerHTML = seoTitle.value;
+})
+seoDesc.addEventListener('keydown', ()=>{
+    descResult.innerHTML = seoDesc.value;
+})
+</script>
 
 
 <?php require "../includes/footer.php" ?>

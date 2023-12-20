@@ -1,0 +1,70 @@
+/* nav */
+
+#mainNav{
+background-color: black;
+}
+#mainNav a{
+    color:white!important;
+}
+#mainNav .navbar-toggler{
+    color:white!important;
+}
+
+/* Homepage */
+.hp-banner{
+    width: 100%;
+    min-height: 65vh;
+    margin-top:53px;
+}
+.hp-banner div{
+    min-height: 50vh;
+    background-size: cover;
+    background-position: center center;
+}
+
+.hp-single-post{
+    min-height: 350px;
+    margin: 1em;
+    display:flex; 
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    
+}
+
+.hp-single-post .post-text{
+background-color: rgba(0, 0, 0, .3);
+width:100%;
+color:white;
+text-align: center;
+}
+.hp-single-post a h2{
+color:white;
+}
+.hp-single-post .post-meta{
+font-size: .6em;
+}
+.hp-single-post .post-meta a{
+color: #cab37c;
+text-decoration: none;
+}
+/* Serp simulator */
+#serp-result{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px 3px rgba(66,68,90,0.1);
+    font-family: 'Arial';
+}
+.title-result{
+    font-size: 20px;
+    color: #1a0dab;
+    margin: 5px 0;
+    max-width: 100% !important;
+}
+
+.desc-result{
+    font-size:14px;
+}
