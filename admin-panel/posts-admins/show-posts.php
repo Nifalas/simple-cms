@@ -39,7 +39,7 @@
                     <?php if($row->status == 0):  ?>
                      <td><a href="status-posts.php?status=<?php echo $row->status; ?>&id=<?php echo $row->id; ?>" class="btn btn-danger text-center ">Hidden</a></td>
                      <?php else: ?>
-                      <td><a href="status-posts.php?status=<?php echo $row->status; ?>&id=<?php echo $row->id; ?>" class="btn btn-succes text-center ">Active</a></td>
+                      <td><a href="status-posts.php?status=<?php echo $row->status; ?>&id=<?php echo $row->id; ?>" class="btn btn-success text-center ">Active</a></td>
                       <?php endif; ?>
 
 

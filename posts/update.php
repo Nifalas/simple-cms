@@ -13,7 +13,7 @@ require "../config/config.php";
         $rows = $select->fetch(PDO::FETCH_OBJ);
 
         if($_SESSION['user_id'] !== $rows->user_id ){
-            header('location: http://localhost/PHP/CMS/index.php');
+           # header('location: http://localhost/PHP/CMS/index.php');
         }
 
         //second query 
@@ -48,16 +48,15 @@ require "../config/config.php";
                     ':seodesc' => $seoDesc,
                 ]);
 
-                if (move_uploaded_file($_FILES['img']['tmp_name'], $dir)) {
-                    header('location: http://localhost/PHP/CMS/index.php');
-                }
+               move_uploaded_file($_FILES['img']['tmp_name'], $dir);
 
-                header('location: http://localhost/PHP/CMS/index.php');
+
         };
     }
 }
 
- 
+$config = array();
+$config["apiKey"] = "hrza07gibpjqc0xho5csj6b3lk8ryo0ia1uef7yygx5lbfwo";
 
 
 ?>
@@ -74,7 +73,7 @@ require "../config/config.php";
             </div>
 
             <div class="form-outline mb-4">
-                <textarea type="text" name="body"  id="form2Example1" class="form-control" placeholder="body"><?php  echo $rows->body; ?> </textarea>
+                <textarea type="text" name="body"  id="form-wyswig-editor" class="form-control" placeholder="body"><?php  echo $rows->body; ?> </textarea>
             </div>
 
             <?php echo "<img src='images/" . $rows->img . "'width=200px>"  ?>;
@@ -95,10 +94,13 @@ require "../config/config.php";
             <!-- Submit button -->
             <button type="submit" name="submit" class="btn btn-primary  mb-4 text-center">Update</button>
 
+            <a href="<?php echo $site_url; ?>/posts/post.php?post_id=<?php echo $id; ?>" class="btn btn-success mb-4 text-center">Back to post</a>
+
 
         </form>
 
-
+        <script src="https://cloud.tinymce.com/6/tinymce.min.js?apiKey=<?php echo $config["apiKey"]; ?>"></script>
+    <script src="../js/init.js"></script>
 
         <?php require "../includes/footer.php";
 

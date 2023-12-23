@@ -16,10 +16,23 @@ background-color: black;
     min-height: 65vh;
     margin-top:53px;
 }
-.hp-banner div{
+.hp-banner div.single-slide{
     min-height: 50vh;
     background-size: cover;
     background-position: center center;
+    display:flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.hp-banner div.single-slide *{
+background-color: rgba(0, 0, 0, .6);
+text-align: center;
+color:white;
+width:100%;
+font-size: 1.5em;
+text-transform: uppercase;
+padding: 1em;
 }
 
 .hp-single-post{
@@ -29,25 +42,35 @@ background-color: black;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    
+    box-shadow: 0px 7px 16px 1px rgba(66, 68, 90, 1);
+    border-radius: 15px;
 }
 
 .hp-single-post .post-text{
-background-color: rgba(0, 0, 0, .3);
+background-color: rgba(0, 0, 0, .6);
 width:100%;
 color:white;
 text-align: center;
+border-bottom-left-radius: 15px;
+border-bottom-right-radius: 15px;
 }
 .hp-single-post a h2{
 color:white;
+font-size: 1.1em;
+padding: 1em;
 }
 .hp-single-post .post-meta{
 font-size: .6em;
+margin:0 0 .3em 0 ;
 }
 .hp-single-post .post-meta a{
 color: #cab37c;
 text-decoration: none;
 }
+
+/* single post */
+
+
 /* Serp simulator */
 #serp-result{
     padding: 10px;

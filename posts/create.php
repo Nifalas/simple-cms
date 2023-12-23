@@ -41,16 +41,15 @@ if (isset($_POST['submit'])) {
             ':user_name' => $user_name,
         ]);
 
-        if (move_uploaded_file($_FILES['img']['tmp_name'], $dir)) {
-            header('location: http://localhost/PHP/CMS/index.php');
-        }
+       move_uploaded_file($_FILES['img']['tmp_name'], $dir);
     }
 }
 
 
 
 
-
+$config = array();
+$config["apiKey"] = "hrza07gibpjqc0xho5csj6b3lk8ryo0ia1uef7yygx5lbfwo";
 
 ?>
 
@@ -66,8 +65,13 @@ if (isset($_POST['submit'])) {
     </div>
 
     <div class="form-outline mb-4">
-        <textarea type="text" name="body" id="form2Example1" class="form-control" placeholder="body" rows="8"></textarea>
+        <textarea type="text" name="body" id="form-wyswig-editor" class="form-control" placeholder="body" rows="8"></textarea>
     </div>
+
+
+    <script src="https://cloud.tinymce.com/6/tinymce.min.js?apiKey=<?php echo $config["apiKey"]; ?>"></script>
+    <script src="../js/init.js"></script>
+
 
     <div class="form-outline mb-4">
         <select class="form-select" name="category_id" aria-label="Default select example">

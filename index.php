@@ -19,14 +19,14 @@ $category = $categories->fetchAll(PDO::FETCH_OBJ);
 
 ?>
 <div class="hp-banner">
-    <div style="background-image: url('assets/img/banner-1.jpg');">
-        <h1>Welcome to my blog</h1>
+    <div style="background-image: url('assets/img/banner-1.jpg');" class="single-slide">
+        <h1>Welcome to blog about web development</h1>
     </div>
-    <div style="background-image: url('assets/img/banner-2.jpg');">
-        <h2>Welcome to my blog</h2>
+    <div style="background-image: url('assets/img/banner-2.jpg');" class="single-slide">
+        <h2>Check our articles</h2>
     </div>
-    <div style="background-image: url('assets/img/banner-3.jpg');">
-        <h2>Welcome to my blog</h2>
+    <div style="background-image: url('assets/img/banner-3.jpg');" class="single-slide">
+        <h2>Join our community</h2>
     </div>
 </div>
 
@@ -42,6 +42,7 @@ $category = $categories->fetchAll(PDO::FETCH_OBJ);
     });
 </script>
 <div class="container gx-4 gx-lg-5 justify-content-center">
+<h2 style="font-size:1.5em;font-weight:bold;">Recent articles</h2>
     <div class="row hp-posts-container">
 
         <?php foreach ($rows as $row) : ?>
@@ -77,7 +78,7 @@ $category = $categories->fetchAll(PDO::FETCH_OBJ);
 
 <div class="row gx-4 gx-lg-5 justify-content-center">
 
-    <p style="font-size:1.5em;font-weight:bold;">Categories</p>
+    <h2 style="font-size:1.5em;font-weight:bold;">Categories</h2>
     <?php foreach ($category as $cat) : ?>
 
         <div class="col-md-6">
