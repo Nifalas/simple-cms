@@ -13,7 +13,7 @@ session_start();
     <meta name="description" content="<?php if (isset($post_seo_desc)) {
                                             echo $post_seo_desc;
                                         } else {
-                                            echo "Placeholder for SEO DESC";
+                                            echo "Placeholder for SEO DESC ";
                                         } ?>" />
     <meta name="author" content="" />
     <title><?php if (isset($post_seo_title)) {
