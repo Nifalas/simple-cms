@@ -56,7 +56,7 @@ session_start();
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <?php echo $_SESSION['username']; ?>
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:black;">
                                 <a class="dropdown-item" href="<?php echo $site_url; ?>/users/profile.php?prof_id=<?php echo $_SESSION['user_id']; ?>">Profile</a>
                                 <a class="dropdown-item" href="<?php echo $site_url; ?>/auth/logout.php">Logout</a>
                             </div>

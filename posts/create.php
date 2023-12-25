@@ -82,6 +82,13 @@ $config["apiKey"] = "hrza07gibpjqc0xho5csj6b3lk8ryo0ia1uef7yygx5lbfwo";
         </select>
     </div>
 
+    <style>
+      .title-bar, .desc-bar{
+        height: 3px;
+        background-color: red;
+        width: 50%;
+      }
+    </style>
 
     <div class="form-outline mb-4">
         <input type="file" name="img" id="form2Example1" class="form-control" placeholder="image" />
@@ -90,9 +97,11 @@ $config["apiKey"] = "hrza07gibpjqc0xho5csj6b3lk8ryo0ia1uef7yygx5lbfwo";
     <div class="form-outline mb-4">
         <h2>SEO Settings</h2>
         <input type="text" name="seotitle" id="formSeoTitle" class="form-control" placeholder=" SEO Title" />
+        <div class="serp-chars"> <span class="title-chars">0</span> Chars (<span class="title-width">0</span>/600px)</div>
     </div>
     <div class="form-outline mb-4">
         <textarea type="text" name="seodesc" id="formSeoDesc" class="form-control" rows="3" placeholder="Meta Description"></textarea>
+        <div class="serp-chars"> <span class="desc-chars">0</span> Chars (<span class="desc-width">0</span>/960px)</div>
     </div>
 
     <!-- Submit button -->
@@ -110,19 +119,34 @@ $config["apiKey"] = "hrza07gibpjqc0xho5csj6b3lk8ryo0ia1uef7yygx5lbfwo";
     <span class="desc-result"> </span>
 </div>
 </div>
-
+<span id="hidden-element" style="position: absolute; visibility: hidden;"></span>
+<span id="hidden-element-desc" style="position: absolute; visibility: hidden;"></span>
 <script>
 const seoTitle = document.querySelector('#formSeoTitle'); 
 const seoDesc = document.querySelector('#formSeoDesc'); 
+const hiddenElement = document.querySelector('#hidden-element'); 
+const hiddenElementDesc = document.querySelector('#hidden-element-desc'); 
+
+let titleChars = document.querySelector(".title-chars");
+let titleWidth = document.querySelector(".title-width");
+let descChars = document.querySelector(".desc-chars");
+let descWidth = document.querySelector(".desc-width");
+
 
 const titleResult = document.querySelector('.title-result'); 
 const descResult = document.querySelector('.desc-result'); 
 
 seoTitle.addEventListener('keydown', ()=>{
     titleResult.innerHTML = seoTitle.value;
+    hiddenElement.innerHTML = seoTitle.value;
+    titleWidth.innerHTML = hiddenElement.offsetWidth;
+    titleChars.innerHTML = seoTitle.value.length+1;              
 })
 seoDesc.addEventListener('keydown', ()=>{
     descResult.innerHTML = seoDesc.value;
+    hiddenElementDesc.innerHTML = seoDesc.value;
+    descWidth.innerHTML = hiddenElementDesc.offsetWidth;
+    descChars.innerHTML = seoDesc.value.length+1;   
 })
 </script>
 
