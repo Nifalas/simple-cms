@@ -2,9 +2,10 @@
 <?php require "../../config/config.php"; ?>
 
 <?php
-$admins = $conn->query("SELECT * FROM admins");
-$admins->execute();
-$rows = $admins->fetchAll(PDO::FETCH_OBJ);
+$users = $conn->query("SELECT * FROM users");
+$users->execute();
+$rows = $users->fetchAll(PDO::FETCH_OBJ);
+
 ?>
 
 
@@ -14,7 +15,6 @@ $rows = $admins->fetchAll(PDO::FETCH_OBJ);
           <div class="card">
             <div class="card-body">
               <h5 class="card-title mb-4 d-inline">Admins</h5>
-             <a  href="http://localhost/PHP/CMS/admin-panel/admins/create-admins.php" class="btn btn-primary mb-4 text-center float-right">Create Admins</a>
               <table class="table">
                 <thead>
                   <tr>
@@ -22,6 +22,7 @@ $rows = $admins->fetchAll(PDO::FETCH_OBJ);
                     <th scope="col">username</th>
                     <th scope="col">email</th>
                     <th scope="col">Delete</th>
+                    <th scope="col">Admin</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -29,9 +30,20 @@ $rows = $admins->fetchAll(PDO::FETCH_OBJ);
 <?php foreach($rows as $row) : ?>
                   <tr>
                     <th scope="row"><?php echo $row->id; ?></th>
-                    <td><?php echo $row->adminname; ?></td>
+                    <td><?php echo $row->username; ?></td>
                     <td><?php echo $row->email; ?></td>
-                    <td><a href="delete-admins.php?del_id=<?php echo $row->id; ?>" class="btn btn-danger text-center ">delete</a></td>
+                    <td><a href="delete-user.php?del_id=<?php echo $row->id; ?>" class="btn btn-danger  text-center ">delete</a></td>
+                    <td><a href="admin-user.php?adm_id=<?php echo $row->id; ?>" class="btn btn-success text-center
+                    <?php
+                    $check_admin = "SELECT * FROM admins WHERE email = '$row->email'";
+                    $adm_res = $conn->query($check_admin);
+
+                        if ($adm_res->rowCount() > 0) {
+                            echo "disabled";
+                        } else {
+                            echo " ";
+                        }
+                    ?>">Set as admin</a></td>
                   </tr>
 <?php endforeach; ?>
 

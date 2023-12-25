@@ -1,54 +1,58 @@
 <?php require "../layouts/header.php"; ?>
 <?php require "../../config/config.php"; ?>
-<?php
 
-if (isset($_SESSION['adminname'])) {
-  header("location:http://localhost/PHP/CMS/admin-panel/index.php");
-}
+<?php 
+
+    if(isset($_SESSION['adminname'])) {
+       header("location: http://localhost/PHP/CMS/admin-panel/index.php");
+    }
+
+    if(isset($_POST['submit'])) {
+        if($_POST['email'] == '' OR $_POST['password'] == '') {
+            echo "<div class='alert alert-danger  text-center  role='alert'>
+                  enter data into the inputs
+              </div>";
+        } else {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            $login = $conn->query("SELECT * FROM admins WHERE email = '$email'");
+
+            $login->execute();
+
+            $row = $login->FETCH(PDO::FETCH_ASSOC);
+
+            if($login->rowCount() > 0) {
+
+                if(password_verify($password, $row['mypassword'])){
+                    
+
+                    $_SESSION['adminname'] = $row['adminname'];
+                    $_SESSION['admin_id'] = $row['id'];
+                  
+
+                    header('location: http://localhost/PHP/CMS/admin-panel/index.php');
+                } else {
+
+                  echo "<div class='alert alert-danger  text-center text-white role='alert'>
+                            the email or password is wrong
+                        </div>";
+                }
 
 
+            } else {
 
-if (isset($_POST['submit'])) {
-  if ($_POST['email'] == '' or $_POST['password'] == '') {
-      echo '<div class="alert alert-danger text-center text-white" role="alert">
-      Fill all inputs
-</div>';
-  } else {
-      $email =  $_POST['email'];
-      $password =  $_POST['password'];
+              echo "<div class='alert alert-danger  text-center  role='alert'>
+                        the email or password is wrong
+                    </div>";
+            }
+        }
+    }
 
-      $login = $conn->query("SELECT * FROM admins WHERE email = '$email'");
-      $login->execute();
-
-      $row = $login->FETCH(PDO::FETCH_ASSOC);
-
-      if ($login->rowCount() > 0) {
-          if (password_verify($password, $row['mypassword'])) {
-
-
-              $_SESSION['adminname'] = $row['adminname'];
-              $_SESSION['admin_id'] = $row['id'];
-
-              header('location: http://localhost/PHP/CMS/admin-panel/index.php');
-          } else{
-              echo '<div class="alert alert-danger text-center text-white" role="alert">
-              Email or password is wrong
-        </div>';
-          }
-      }
-      else{
-          echo '<div class="alert alert-danger text-center text-white" role="alert">
-          Email or password is wrong
-    </div>';
-      }
-  }
-}
 
 
 ?>
-
-
-      <div class="row">
+<div class="row">
         <div class="col">
           <div class="card">
             <div class="card-body">
@@ -78,6 +82,5 @@ if (isset($_POST['submit'])) {
             </div>
        </div>
      </div>
-    </div>
-
-    <?php require "../layouts/footer.php"; ?>
+</div>
+<?php require "../layouts/footer.php"; ?>
